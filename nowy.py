@@ -32,8 +32,6 @@ def change_difficulty(value: Tuple[Any, int], difficulty: str) -> None:
 def random_color() -> Tuple[int, int, int]:
     return randrange(0, 255), randrange(0, 255), randrange(0, 255)
 
-def paletka():
-    return 1
 
 
 def play_function(difficulty: List, font: 'pygame.font.Font', test: bool = False) -> None:
@@ -216,7 +214,7 @@ def main(test: bool = False) -> None:
         title='Submenu',
         width=WINDOW_SIZE[0] * 0.7
     )
-    for i in range(30):
+    for i in range(5):
         play_submenu.add.button(f'Back {i}', pygame_menu.events.BACK)
     play_submenu.add.button('Return to main menu', pygame_menu.events.RESET)
 
@@ -318,6 +316,8 @@ def main(test: bool = False) -> None:
 
         if test:
             break
+
+        
 
 
 if __name__ == '__main__':
