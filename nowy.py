@@ -137,6 +137,29 @@ def play_function(difficulty: List, font: 'pygame.font.Font', test: bool = False
                 paletka1_prost.y = przesuniecie
                 paletka2_prost.y = przesuniecie
 
+
+            #### STEROWANIE KLAWISZAMI PRAWO LEWO DLA LEWEGO GRACZA #########
+            if e.type == pygame.KEYDOWN:
+                if e.key == pygame.K_w:
+                    paletka1_prost.y -= 5
+                    if paletka1_prost.y < 0:
+                        paletka1_prost.y = 0
+                if e.key == pygame.K_s:
+                    paletka1_prost.y += 5
+                    if paletka1_prost.y > WINDOW_SIZE[1] - PALETKA_SZER:
+                        paletka1_prost.y = WINDOW_SIZE[1] - PALETKA_SZER
+
+            if e.type == pygame.KEYDOWN:
+                if e.key == pygame.K_UP:
+                    paletka2_prost.y -= 5
+                    if paletka2_prost.y < 0:
+                        paletka2_prost.y = 0
+                if e.key == pygame.K_DOWN:
+                    paletka2_prost.y += 5
+                    if paletka2_prost.y > WINDOW_SIZE[1] - PALETKA_SZER:
+                        paletka2_prost.y = WINDOW_SIZE[1] - PALETKA_SZER
+
+
         ####################### DLA PIŁKI ############################
             pilka_prost.move_ip(P_PREDKOSC_X, P_PREDKOSC_Y)
 
@@ -168,8 +191,9 @@ def play_function(difficulty: List, font: 'pygame.font.Font', test: bool = False
         surface.blit(paletka2, paletka2_prost)
         surface.blit(pilka, pilka_prost)
         fpsClock.tick(FPS)
-
+        pygame.key.set_repeat(50, 10)
         pygame.display.flip()
+
 
         if test and frame == 2:
             break
