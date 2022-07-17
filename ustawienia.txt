@@ -1,0 +1,3 @@
+kol_paletki:1
+kol_pilki:3
+1
